@@ -1,5 +1,7 @@
 import { attr } from './utilities';
 import { hoverActive } from './interactions/hoverActive';
+import { clickActive } from './interactions/clickActive';
+import { load } from './interactions/load';
 import { scrollIn } from './interactions/scrollIn';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -32,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let { isMobile, isTablet, isDesktop, reduceMotion } = gsapContext.conditions;
         //functional interactions
         hoverActive(gsapContext);
+        clickActive(gsapContext);
+        load(gsapContext);
+
         //conditional interactions
         if (!reduceMotion) {
           scrollIn(gsapContext);
