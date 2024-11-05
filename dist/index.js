@@ -1,4 +1,1263 @@
-(()=>{(function(){function t(){for(var n=arguments.length,o=0;o<n;o++){var a=o<0||arguments.length<=o?void 0:arguments[o];a.nodeType===1||a.nodeType===11?this.appendChild(a):this.appendChild(document.createTextNode(String(a)))}}function e(){for(;this.lastChild;)this.removeChild(this.lastChild);arguments.length&&this.append.apply(this,arguments)}function r(){for(var n=this.parentNode,o=arguments.length,a=new Array(o),s=0;s<o;s++)a[s]=arguments[s];var c=a.length;if(n)for(c||n.removeChild(this);c--;){var u=a[c];typeof u!="object"?u=this.ownerDocument.createTextNode(u):u.parentNode&&u.parentNode.removeChild(u),c?n.insertBefore(this.previousSibling,u):n.replaceChild(u,this)}}typeof Element<"u"&&(Element.prototype.append||(Element.prototype.append=t,DocumentFragment.prototype.append=t),Element.prototype.replaceChildren||(Element.prototype.replaceChildren=e,DocumentFragment.prototype.replaceChildren=e),Element.prototype.replaceWith||(Element.prototype.replaceWith=r,DocumentFragment.prototype.replaceWith=r))})();function Ot(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function tt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}function et(t,e,r){return e&&tt(t.prototype,e),r&&tt(t,r),t}function It(t,e,r){return e in t?Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}):t[e]=r,t}function rt(t,e){var r=Object.keys(t);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(t);e&&(n=n.filter(function(o){return Object.getOwnPropertyDescriptor(t,o).enumerable})),r.push.apply(r,n)}return r}function nt(t){for(var e=1;e<arguments.length;e++){var r=arguments[e]!=null?arguments[e]:{};e%2?rt(Object(r),!0).forEach(function(n){It(t,n,r[n])}):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):rt(Object(r)).forEach(function(n){Object.defineProperty(t,n,Object.getOwnPropertyDescriptor(r,n))})}return t}function ot(t,e){return xt(t)||Nt(t,e)||at(t,e)||kt()}function x(t){return Ct(t)||_t(t)||at(t)||Lt()}function Ct(t){if(Array.isArray(t))return X(t)}function xt(t){if(Array.isArray(t))return t}function _t(t){if(typeof Symbol<"u"&&Symbol.iterator in Object(t))return Array.from(t)}function Nt(t,e){if(!(typeof Symbol>"u"||!(Symbol.iterator in Object(t)))){var r=[],n=!0,o=!1,a=void 0;try{for(var s=t[Symbol.iterator](),c;!(n=(c=s.next()).done)&&(r.push(c.value),!(e&&r.length===e));n=!0);}catch(u){o=!0,a=u}finally{try{!n&&s.return!=null&&s.return()}finally{if(o)throw a}}return r}}function at(t,e){if(t){if(typeof t=="string")return X(t,e);var r=Object.prototype.toString.call(t).slice(8,-1);if(r==="Object"&&t.constructor&&(r=t.constructor.name),r==="Map"||r==="Set")return Array.from(t);if(r==="Arguments"||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r))return X(t,e)}}function X(t,e){(e==null||e>t.length)&&(e=t.length);for(var r=0,n=new Array(e);r<e;r++)n[r]=t[r];return n}function Lt(){throw new TypeError(`Invalid attempt to spread non-iterable instance.
-In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`)}function kt(){throw new TypeError(`Invalid attempt to destructure non-iterable instance.
-In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`)}function M(t,e){return Object.getOwnPropertyNames(Object(t)).reduce(function(r,n){var o=Object.getOwnPropertyDescriptor(Object(t),n),a=Object.getOwnPropertyDescriptor(Object(e),n);return Object.defineProperty(r,n,a||o)},{})}function $(t){return typeof t=="string"}function K(t){return Array.isArray(t)}function G(){var t=arguments.length>0&&arguments[0]!==void 0?arguments[0]:{},e=M(t),r;return e.types!==void 0?r=e.types:e.split!==void 0&&(r=e.split),r!==void 0&&(e.types=($(r)||K(r)?String(r):"").split(",").map(function(n){return String(n).trim()}).filter(function(n){return/((line)|(word)|(char))/i.test(n)})),(e.absolute||e.position)&&(e.absolute=e.absolute||/absolute/.test(t.position)),e}function J(t){var e=$(t)||K(t)?String(t):"";return{none:!e,lines:/line/i.test(e),words:/word/i.test(e),chars:/char/i.test(e)}}function U(t){return t!==null&&typeof t=="object"}function Rt(t){return U(t)&&/^(1|3|11)$/.test(t.nodeType)}function Pt(t){return typeof t=="number"&&t>-1&&t%1===0}function jt(t){return U(t)&&Pt(t.length)}function B(t){return K(t)?t:t==null?[]:jt(t)?Array.prototype.slice.call(t):[t]}function it(t){var e=t;return $(t)&&(/^(#[a-z]\w+)$/.test(t.trim())?e=document.getElementById(t.trim().slice(1)):e=document.querySelectorAll(t)),B(e).reduce(function(r,n){return[].concat(x(r),x(B(n).filter(Rt)))},[])}var Dt=Object.entries,F="_splittype",N={},Mt=0;function k(t,e,r){if(!U(t))return console.warn("[data.set] owner is not an object"),null;var n=t[F]||(t[F]=++Mt),o=N[n]||(N[n]={});return r===void 0?e&&Object.getPrototypeOf(e)===Object.prototype&&(N[n]=nt(nt({},o),e)):e!==void 0&&(o[e]=r),r}function W(t,e){var r=U(t)?t[F]:null,n=r&&N[r]||{};return e===void 0?n:n[e]}function st(t){var e=t&&t[F];e&&(delete t[e],delete N[e])}function Wt(){Object.keys(N).forEach(function(t){delete N[t]})}function Bt(){Dt(N).forEach(function(t){var e=ot(t,2),r=e[0],n=e[1],o=n.isRoot,a=n.isSplit;(!o||!a)&&(N[r]=null,delete N[r])})}function Ht(t){var e=arguments.length>1&&arguments[1]!==void 0?arguments[1]:" ",r=t?String(t):"";return r.trim().replace(/\s+/g," ").split(e)}var Z="\\ud800-\\udfff",ct="\\u0300-\\u036f\\ufe20-\\ufe23",lt="\\u20d0-\\u20f0",ft="\\ufe0e\\ufe0f",$t="[".concat(Z,"]"),q="[".concat(ct).concat(lt,"]"),z="\\ud83c[\\udffb-\\udfff]",Gt="(?:".concat(q,"|").concat(z,")"),ut="[^".concat(Z,"]"),pt="(?:\\ud83c[\\udde6-\\uddff]){2}",dt="[\\ud800-\\udbff][\\udc00-\\udfff]",ht="\\u200d",gt="".concat(Gt,"?"),vt="[".concat(ft,"]?"),Ft="(?:"+ht+"(?:"+[ut,pt,dt].join("|")+")"+vt+gt+")*",Ut=vt+gt+Ft,Vt="(?:".concat(["".concat(ut).concat(q,"?"),q,pt,dt,$t].join("|"),`
-)`),Xt=RegExp("".concat(z,"(?=").concat(z,")|").concat(Vt).concat(Ut),"g"),qt=[ht,Z,ct,lt,ft],zt=RegExp("[".concat(qt.join(""),"]"));function Yt(t){return t.split("")}function yt(t){return zt.test(t)}function Kt(t){return t.match(Xt)||[]}function Jt(t){return yt(t)?Kt(t):Yt(t)}function Zt(t){return t==null?"":String(t)}function Qt(t){var e=arguments.length>1&&arguments[1]!==void 0?arguments[1]:"";return t=Zt(t),t&&$(t)&&!e&&yt(t)?Jt(t):t.split(e)}function Y(t,e){var r=document.createElement(t);return e&&Object.keys(e).forEach(function(n){var o=e[n],a=$(o)?o.trim():o;a===null||a===""||(n==="children"?r.append.apply(r,x(B(a))):r.setAttribute(n,a))}),r}var Q={splitClass:"",lineClass:"line",wordClass:"word",charClass:"char",types:["lines","words","chars"],absolute:!1,tagName:"div"};function te(t,e){e=M(Q,e);var r=J(e.types),n=e.tagName,o=t.nodeValue,a=document.createDocumentFragment(),s=[],c=[];return/^\s/.test(o)&&a.append(" "),s=Ht(o).reduce(function(u,y,A,w){var m,E;return r.chars&&(E=Qt(y).map(function(O){var l=Y(n,{class:"".concat(e.splitClass," ").concat(e.charClass),style:"display: inline-block;",children:O});return k(l,"isChar",!0),c=[].concat(x(c),[l]),l})),r.words||r.lines?(m=Y(n,{class:"".concat(e.wordClass," ").concat(e.splitClass),style:"display: inline-block; ".concat(r.words&&e.absolute?"position: relative;":""),children:r.chars?E:y}),k(m,{isWord:!0,isWordStart:!0,isWordEnd:!0}),a.appendChild(m)):E.forEach(function(O){a.appendChild(O)}),A<w.length-1&&a.append(" "),r.words?u.concat(m):u},[]),/\s$/.test(o)&&a.append(" "),t.replaceWith(a),{words:s,chars:c}}function At(t,e){var r=t.nodeType,n={words:[],chars:[]};if(!/(1|3|11)/.test(r))return n;if(r===3&&/\S/.test(t.nodeValue))return te(t,e);var o=B(t.childNodes);if(o.length&&(k(t,"isSplit",!0),!W(t).isRoot)){t.style.display="inline-block",t.style.position="relative";var a=t.nextSibling,s=t.previousSibling,c=t.textContent||"",u=a?a.textContent:" ",y=s?s.textContent:" ";k(t,{isWordEnd:/\s$/.test(c)||/^\s/.test(u),isWordStart:/^\s/.test(c)||/\s$/.test(y)})}return o.reduce(function(A,w){var m=At(w,e),E=m.words,O=m.chars;return{words:[].concat(x(A.words),x(E)),chars:[].concat(x(A.chars),x(O))}},n)}function ee(t,e,r,n){if(!r.absolute)return{top:e?t.offsetTop:null};var o=t.offsetParent,a=ot(n,2),s=a[0],c=a[1],u=0,y=0;if(o&&o!==document.body){var A=o.getBoundingClientRect();u=A.x+s,y=A.y+c}var w=t.getBoundingClientRect(),m=w.width,E=w.height,O=w.x,l=w.y,d=l+c-y,v=O+s-u;return{width:m,height:E,top:d,left:v}}function bt(t){W(t).isWord?(st(t),t.replaceWith.apply(t,x(t.childNodes))):B(t.children).forEach(function(e){return bt(e)})}var re=function(){return document.createDocumentFragment()};function ne(t,e,r){var n=J(e.types),o=e.tagName,a=t.getElementsByTagName("*"),s=[],c=[],u=null,y,A,w,m=[],E=t.parentElement,O=t.nextElementSibling,l=re(),d=window.getComputedStyle(t),v=d.textAlign,R=parseFloat(d.fontSize),P=R*.2;return e.absolute&&(w={left:t.offsetLeft,top:t.offsetTop,width:t.offsetWidth},A=t.offsetWidth,y=t.offsetHeight,k(t,{cssWidth:t.style.width,cssHeight:t.style.height})),B(a).forEach(function(b){var h=b.parentElement===t,S=ee(b,h,e,r),g=S.width,L=S.height,_=S.top,C=S.left;/^br$/i.test(b.nodeName)||(n.lines&&h&&((u===null||_-u>=P)&&(u=_,s.push(c=[])),c.push(b)),e.absolute&&k(b,{top:_,left:C,width:g,height:L}))}),E&&E.removeChild(t),n.lines&&(m=s.map(function(b){var h=Y(o,{class:"".concat(e.splitClass," ").concat(e.lineClass),style:"display: block; text-align: ".concat(v,"; width: 100%;")});k(h,"isLine",!0);var S={height:0,top:1e4};return l.appendChild(h),b.forEach(function(g,L,_){var C=W(g),i=C.isWordEnd,f=C.top,p=C.height,I=_[L+1];S.height=Math.max(S.height,p),S.top=Math.min(S.top,f),h.appendChild(g),i&&W(I).isWordStart&&h.append(" ")}),e.absolute&&k(h,{height:S.height,top:S.top}),h}),n.words||bt(l),t.replaceChildren(l)),e.absolute&&(t.style.width="".concat(t.style.width||A,"px"),t.style.height="".concat(y,"px"),B(a).forEach(function(b){var h=W(b),S=h.isLine,g=h.top,L=h.left,_=h.width,C=h.height,i=W(b.parentElement),f=!S&&i.isLine;b.style.top="".concat(f?g-i.top:g,"px"),b.style.left=S?"".concat(w.left,"px"):"".concat(L-(f?w.left:0),"px"),b.style.height="".concat(C,"px"),b.style.width=S?"".concat(w.width,"px"):"".concat(_,"px"),b.style.position="absolute"})),E&&(O?E.insertBefore(t,O):E.appendChild(t)),m}var H=M(Q,{}),Tt=function(){et(t,null,[{key:"clearData",value:function(){Wt()}},{key:"setDefaults",value:function(r){return H=M(H,G(r)),Q}},{key:"revert",value:function(r){it(r).forEach(function(n){var o=W(n),a=o.isSplit,s=o.html,c=o.cssWidth,u=o.cssHeight;a&&(n.innerHTML=s,n.style.width=c||"",n.style.height=u||"",st(n))})}},{key:"create",value:function(r,n){return new t(r,n)}},{key:"data",get:function(){return N}},{key:"defaults",get:function(){return H},set:function(r){H=M(H,G(r))}}]);function t(e,r){Ot(this,t),this.isSplit=!1,this.settings=M(H,G(r)),this.elements=it(e),this.split()}return et(t,[{key:"split",value:function(r){var n=this;this.revert(),this.elements.forEach(function(s){k(s,"html",s.innerHTML)}),this.lines=[],this.words=[],this.chars=[];var o=[window.pageXOffset,window.pageYOffset];r!==void 0&&(this.settings=M(this.settings,G(r)));var a=J(this.settings.types);a.none||(this.elements.forEach(function(s){k(s,"isRoot",!0);var c=At(s,n.settings),u=c.words,y=c.chars;n.words=[].concat(x(n.words),x(u)),n.chars=[].concat(x(n.chars),x(y))}),this.elements.forEach(function(s){if(a.lines||n.settings.absolute){var c=ne(s,n.settings,o);n.lines=[].concat(x(n.lines),x(c))}}),this.isSplit=!0,window.scrollTo(o[0],o[1]),Bt())}},{key:"revert",value:function(){this.isSplit&&(this.lines=null,this.words=null,this.chars=null,this.isSplit=!1),t.revert(this.elements)}}]),t}();var T=function(t,e){let r=typeof t;return typeof e!="string"||e.trim()===""?t:e==="true"&&r==="boolean"?!0:e==="false"&&r==="boolean"?!1:isNaN(e)&&r==="string"?e:!isNaN(e)&&r==="number"?+e:t},V=function(t,e="lines, words"){if(t)return typeSplit=new Tt(t,{types:e}),typeSplit},D=function(t,e,r){if(!t||!e||!r){console.error(`GSAP checkBreakpoints Error in ${e}`);return}let{isMobile:n,isTablet:o,isDesktop:a,reduceMotion:s}=r.conditions;if(n===void 0||o===void 0||a===void 0){console.error("GSAP Match Media Conditions Not Defined");return}let c=`data-ix-${e}-desktop`,u=`data-ix-${e}-tablet`,y=`data-ix-${e}-mobile`,A=`data-ix-${e}-run`;return runAll=T(!0,t.getAttribute(A)),runMobile=T(!0,t.getAttribute(y)),runTablet=T(!0,t.getAttribute(u)),runDesktop=T(!0,t.getAttribute(c)),!(runAll===!1||runMobile===!1&&n||runTablet===!1&&o||runDesktop===!1&&a)};var Et=function(t){let e="hoveractive",r='[data-ix-hoveractive="wrap"]',n="data-ix-hoveractive-class",o="is-active";gsap.utils.toArray(r).forEach(s=>{if(!s)return;let c=attr(o,s.getAttribute(n));D(s,e,t)!==!1&&(s.addEventListener("mouseover",function(y){s.classList.add(c)}),s.addEventListener("mouseleave",function(y){s.classList.remove(c)}))})};var mt=function(t){let e="clickactive",r='[data-ix-clickactive="wrap"]',n='[data-ix-clickactive="trigger"]',o='[data-ix-clickactive="target"]',a="data-ix-clickactive-id",s="data-ix-clickactive-class",c="data-ix-clickactive-start-active",u="data-ix-clickactive-first-active",y="data-ix-clickactive-one-active",A="data-ix-clickactive-keep-one-active",m="is-active",E=function(l){let d=Array.from(l.querySelectorAll(n)),v=m,R=!1,P=!1,b=!1;if(l!==document&&(v=T(m,l.getAttribute(s)),R=T(!1,l.getAttribute(u)),P=T(!1,l.getAttribute(y)),b=T(!1,l.getAttribute(A)),D(l,e,t)===!1))return;let h=function(g,L=!0){if(!g)return;let _=!0,C=g.getAttribute(a),i=l.querySelector(`${o}[${a}="${C}"]`);(!C||!i)&&(_=!1),L?(g.classList.add(v),_&&i.classList.add(v)):(g.classList.remove(v),_&&i.classList.remove(v))};d.forEach(g=>{if(!g)return;T(!1,g.getAttribute(c))?h(g):h(g,!1),g.addEventListener("click",function(_){let C=g.classList.contains(m);C||(P&&d.forEach(i=>{i===g?h(i):h(i,!1)}),P||h(g)),C&&!b&&h(g,!1),C&&b&&d.filter(function(f){return f.classList.contains(v)}).length>1&&h(g,!1),gsap.ScrollTrigger!==void 0&&setTimeout(()=>{ScrollTrigger.refresh()},800)})});let S=d[0];R&&h(S)},O=gsap.utils.toArray(r);O.length===0||O===void 0?E(document):O.forEach(l=>{E(l)})};var St=function(t){let e="load",r="data-ix-load",n="heading",o="item",a="image",s="stagger",c="data-ix-load-position",u="<0.2",y=gsap.utils.toArray(`[${r}]`);if(y.length===0)return;let A=gsap.timeline({paused:!0,defaults:{ease:"power1.out",duration:.8}}),w=function(l){let d=V(l);if(!d)return;let v=T("<",l.getAttribute(c));A.set(l,{opacity:1}),A.fromTo(d.words,{opacity:0,y:"50%",rotateX:45},{opacity:1,y:"0%",rotateX:0,stagger:{each:.1,from:"left"}},v)},m=function(l){let d=T(u,l.getAttribute(c));A.fromTo(l,{opacity:0,scale:.7},{opacity:1,scale:1},d)},E=function(l){let d=T(u,l.getAttribute(c));A.fromTo(l,{opacity:0,y:"2rem"},{opacity:1,y:"0rem"},d)},O=function(l){if(!l)return;let d=gsap.utils.toArray(l.children);d.length!==0&&d.forEach((v,R)=>{R===0&&(l.style.opacity=1),E(v)})};return y.forEach(l=>{if(!l||D(l,e,t)===!1)return;let v=l.getAttribute(r);v===n&&w(l),v===a&&m(l),v===o&&E(l),v===s&&O(l)}),A.play(0),A};var wt=function(t){let e="scrollin",r="data-ix-scrollin",n="heading",o="item",a="container",s="stagger",c="rich-text",u="image-wrap",y="image",A="line",w="data-ix-scrollin-toggle-actions",m="data-ix-scrollin-scrub",E="data-ix-scrollin-start",O="data-ix-scrollin-end",l="data-ix-scrollin-direction",d=function(i){let f={scrub:!1,toggleActions:"play none none none",start:"top 90%",end:"top 75%"};return f.toggleActions=T(f.toggleActions,i.getAttribute(w)),f.scrub=T(f.scrub,i.getAttribute(m)),f.start=T(f.start,i.getAttribute(E)),f.end=T(f.end,i.getAttribute(O)),gsap.timeline({defaults:{duration:.6,ease:"power1.out"},scrollTrigger:{trigger:i,start:f.start,end:f.end,toggleActions:f.toggleActions,scrub:f.scrub}})},v=function(i,f,p={}){let I={opacity:0,y:"2rem"},j={opacity:1,x:"0rem"};return p.stagger===!0&&(j.stagger={each:.1,from:"start"}),f.fromTo(i,I,j)},R=function(i){let f=V(i);if(!f)return;let p=d(i),I=v(f.words,p,{stagger:!0,skew:"large"});p.eventCallback("onComplete",()=>{f.revert()})},P=function(i){if(!i)return;let f=d(i),p=v(i,f)},b=function(i){let f="right",p,I=T(f,i.getAttribute(l)),j={left:"polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",right:"polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",top:"polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",bottom:"polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"};return I==="left"&&(p=j.left),I==="right"&&(p=j.right),I==="top"&&(p=j.top),I==="bottom"&&(p=j.bottom),p},h=function(i){if(!i)return;let f=b(i);d(i).fromTo(i,{clipPath:f},{clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",duration:1})},S=function(i){if(!i)return;let f=b(i);d(i).fromTo(i,{clipPath:f},{clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"})},g=function(i){if(!i)return;let f=gsap.utils.toArray(i.children);f.length!==0&&f.forEach(p=>{let I=d(p),j=v(p,I)})},L=function(i){if(!i)return;let f=gsap.utils.toArray(i.children);if(f.length===0)return;let p=d(i),I=v(f,p,{stagger:!0})},_=function(i){if(!i)return;let f=gsap.utils.toArray(i.children);f.length!==0&&f.forEach(p=>{let I=p.tagName;["H1","H2","H3","H4","H5","H6"].includes(I)&&R(p),I==="FIGURE"?h(p):P(p)})};gsap.utils.toArray(`[${r}]`).forEach(i=>{if(!i||D(i,e,t)===!1)return;let p=i.getAttribute(r);p===n&&R(i),p===o&&P(i),p===y&&h(i),p===A&&S(i),p===a&&g(i),p===s&&L(i),p===c&&_(i)})};document.addEventListener("DOMContentLoaded",function(){console.log("Local Script"),gsap.ScrollTrigger!==void 0&&gsap.registerPlugin(ScrollTrigger),gsap.Flip!==void 0&&gsap.registerPlugin(Flip),function(){gsap.matchMedia().add({isMobile:"(max-width: 767px)",isTablet:"(min-width: 768px)  and (max-width: 991px)",isDesktop:"(min-width: 992px)",reduceMotion:"(prefers-reduced-motion: reduce)"},n=>{let{isMobile:o,isTablet:a,isDesktop:s,reduceMotion:c}=n.conditions;Et(n),mt(n),St(n),c||wt(n)})}(),function(){let r="[data-ix-reset]",n="data-ix-reset-time";document.querySelectorAll(r).forEach(function(a){a.addEventListener("click",function(s){if(ScrollTrigger.refresh(),a.hasAttribute(n)){let c=T(1e3,a.getAttribute(n));setTimeout(()=>{ScrollTrigger.refresh()},c)}})})}()});})();
+(() => {
+  // bin/live-reload.js
+  new EventSource(`http://localhost:3000/esbuild`).addEventListener(
+    "change",
+    () => location.reload()
+  );
+
+  // node_modules/split-type/dist/index.js
+  (function() {
+    function append() {
+      var length = arguments.length;
+      for (var i = 0; i < length; i++) {
+        var node = i < 0 || arguments.length <= i ? void 0 : arguments[i];
+        if (node.nodeType === 1 || node.nodeType === 11) this.appendChild(node);
+        else this.appendChild(document.createTextNode(String(node)));
+      }
+    }
+    function replaceChildren() {
+      while (this.lastChild) {
+        this.removeChild(this.lastChild);
+      }
+      if (arguments.length) this.append.apply(this, arguments);
+    }
+    function replaceWith() {
+      var parent = this.parentNode;
+      for (var _len = arguments.length, nodes = new Array(_len), _key = 0; _key < _len; _key++) {
+        nodes[_key] = arguments[_key];
+      }
+      var i = nodes.length;
+      if (!parent) return;
+      if (!i) parent.removeChild(this);
+      while (i--) {
+        var node = nodes[i];
+        if (typeof node !== "object") {
+          node = this.ownerDocument.createTextNode(node);
+        } else if (node.parentNode) {
+          node.parentNode.removeChild(node);
+        }
+        if (!i) {
+          parent.replaceChild(node, this);
+        } else {
+          parent.insertBefore(this.previousSibling, node);
+        }
+      }
+    }
+    if (typeof Element !== "undefined") {
+      if (!Element.prototype.append) {
+        Element.prototype.append = append;
+        DocumentFragment.prototype.append = append;
+      }
+      if (!Element.prototype.replaceChildren) {
+        Element.prototype.replaceChildren = replaceChildren;
+        DocumentFragment.prototype.replaceChildren = replaceChildren;
+      }
+      if (!Element.prototype.replaceWith) {
+        Element.prototype.replaceWith = replaceWith;
+        DocumentFragment.prototype.replaceWith = replaceWith;
+      }
+    }
+  })();
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  }
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function(sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+    return keys;
+  }
+  function _objectSpread2(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  }
+  function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+  }
+  function _toConsumableArray(arr) {
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+  }
+  function _arrayWithoutHoles(arr) {
+    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+  }
+  function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+  }
+  function _iterableToArray(iter) {
+    if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+  }
+  function _iterableToArrayLimit(arr, i) {
+    if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = void 0;
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"] != null) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+    return arr2;
+  }
+  function _nonIterableSpread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+  function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+  function extend(target, object) {
+    return Object.getOwnPropertyNames(Object(target)).reduce(function(extended, key) {
+      var currentValue = Object.getOwnPropertyDescriptor(Object(target), key);
+      var newValue = Object.getOwnPropertyDescriptor(Object(object), key);
+      return Object.defineProperty(extended, key, newValue || currentValue);
+    }, {});
+  }
+  function isString(value) {
+    return typeof value === "string";
+  }
+  function isArray(value) {
+    return Array.isArray(value);
+  }
+  function parseSettings() {
+    var settings = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    var object = extend(settings);
+    var types;
+    if (object.types !== void 0) {
+      types = object.types;
+    } else if (object.split !== void 0) {
+      types = object.split;
+    }
+    if (types !== void 0) {
+      object.types = (isString(types) || isArray(types) ? String(types) : "").split(",").map(function(type) {
+        return String(type).trim();
+      }).filter(function(type) {
+        return /((line)|(word)|(char))/i.test(type);
+      });
+    }
+    if (object.absolute || object.position) {
+      object.absolute = object.absolute || /absolute/.test(settings.position);
+    }
+    return object;
+  }
+  function parseTypes(value) {
+    var types = isString(value) || isArray(value) ? String(value) : "";
+    return {
+      none: !types,
+      lines: /line/i.test(types),
+      words: /word/i.test(types),
+      chars: /char/i.test(types)
+    };
+  }
+  function isObject(value) {
+    return value !== null && typeof value === "object";
+  }
+  function isNode(input) {
+    return isObject(input) && /^(1|3|11)$/.test(input.nodeType);
+  }
+  function isLength(value) {
+    return typeof value === "number" && value > -1 && value % 1 === 0;
+  }
+  function isArrayLike(value) {
+    return isObject(value) && isLength(value.length);
+  }
+  function toArray(value) {
+    if (isArray(value)) return value;
+    if (value == null) return [];
+    return isArrayLike(value) ? Array.prototype.slice.call(value) : [value];
+  }
+  function getTargetElements(target) {
+    var elements = target;
+    if (isString(target)) {
+      if (/^(#[a-z]\w+)$/.test(target.trim())) {
+        elements = document.getElementById(target.trim().slice(1));
+      } else {
+        elements = document.querySelectorAll(target);
+      }
+    }
+    return toArray(elements).reduce(function(result, element) {
+      return [].concat(_toConsumableArray(result), _toConsumableArray(toArray(element).filter(isNode)));
+    }, []);
+  }
+  var entries = Object.entries;
+  var expando = "_splittype";
+  var cache = {};
+  var uid = 0;
+  function set(owner, key, value) {
+    if (!isObject(owner)) {
+      console.warn("[data.set] owner is not an object");
+      return null;
+    }
+    var id = owner[expando] || (owner[expando] = ++uid);
+    var data = cache[id] || (cache[id] = {});
+    if (value === void 0) {
+      if (!!key && Object.getPrototypeOf(key) === Object.prototype) {
+        cache[id] = _objectSpread2(_objectSpread2({}, data), key);
+      }
+    } else if (key !== void 0) {
+      data[key] = value;
+    }
+    return value;
+  }
+  function get(owner, key) {
+    var id = isObject(owner) ? owner[expando] : null;
+    var data = id && cache[id] || {};
+    if (key === void 0) {
+      return data;
+    }
+    return data[key];
+  }
+  function remove(element) {
+    var id = element && element[expando];
+    if (id) {
+      delete element[id];
+      delete cache[id];
+    }
+  }
+  function clear() {
+    Object.keys(cache).forEach(function(key) {
+      delete cache[key];
+    });
+  }
+  function cleanup() {
+    entries(cache).forEach(function(_ref) {
+      var _ref2 = _slicedToArray(_ref, 2), id = _ref2[0], _ref2$ = _ref2[1], isRoot = _ref2$.isRoot, isSplit = _ref2$.isSplit;
+      if (!isRoot || !isSplit) {
+        cache[id] = null;
+        delete cache[id];
+      }
+    });
+  }
+  function toWords(value) {
+    var separator = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : " ";
+    var string = value ? String(value) : "";
+    return string.trim().replace(/\s+/g, " ").split(separator);
+  }
+  var rsAstralRange = "\\ud800-\\udfff";
+  var rsComboMarksRange = "\\u0300-\\u036f\\ufe20-\\ufe23";
+  var rsComboSymbolsRange = "\\u20d0-\\u20f0";
+  var rsVarRange = "\\ufe0e\\ufe0f";
+  var rsAstral = "[".concat(rsAstralRange, "]");
+  var rsCombo = "[".concat(rsComboMarksRange).concat(rsComboSymbolsRange, "]");
+  var rsFitz = "\\ud83c[\\udffb-\\udfff]";
+  var rsModifier = "(?:".concat(rsCombo, "|").concat(rsFitz, ")");
+  var rsNonAstral = "[^".concat(rsAstralRange, "]");
+  var rsRegional = "(?:\\ud83c[\\udde6-\\uddff]){2}";
+  var rsSurrPair = "[\\ud800-\\udbff][\\udc00-\\udfff]";
+  var rsZWJ = "\\u200d";
+  var reOptMod = "".concat(rsModifier, "?");
+  var rsOptVar = "[".concat(rsVarRange, "]?");
+  var rsOptJoin = "(?:" + rsZWJ + "(?:" + [rsNonAstral, rsRegional, rsSurrPair].join("|") + ")" + rsOptVar + reOptMod + ")*";
+  var rsSeq = rsOptVar + reOptMod + rsOptJoin;
+  var rsSymbol = "(?:".concat(["".concat(rsNonAstral).concat(rsCombo, "?"), rsCombo, rsRegional, rsSurrPair, rsAstral].join("|"), "\n)");
+  var reUnicode = RegExp("".concat(rsFitz, "(?=").concat(rsFitz, ")|").concat(rsSymbol).concat(rsSeq), "g");
+  var unicodeRange = [rsZWJ, rsAstralRange, rsComboMarksRange, rsComboSymbolsRange, rsVarRange];
+  var reHasUnicode = RegExp("[".concat(unicodeRange.join(""), "]"));
+  function asciiToArray(string) {
+    return string.split("");
+  }
+  function hasUnicode(string) {
+    return reHasUnicode.test(string);
+  }
+  function unicodeToArray(string) {
+    return string.match(reUnicode) || [];
+  }
+  function stringToArray(string) {
+    return hasUnicode(string) ? unicodeToArray(string) : asciiToArray(string);
+  }
+  function toString(value) {
+    return value == null ? "" : String(value);
+  }
+  function toChars(string) {
+    var separator = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
+    string = toString(string);
+    if (string && isString(string)) {
+      if (!separator && hasUnicode(string)) {
+        return stringToArray(string);
+      }
+    }
+    return string.split(separator);
+  }
+  function createElement(name, attributes) {
+    var element = document.createElement(name);
+    if (!attributes) {
+      return element;
+    }
+    Object.keys(attributes).forEach(function(attribute) {
+      var rawValue = attributes[attribute];
+      var value = isString(rawValue) ? rawValue.trim() : rawValue;
+      if (value === null || value === "") return;
+      if (attribute === "children") {
+        element.append.apply(element, _toConsumableArray(toArray(value)));
+      } else {
+        element.setAttribute(attribute, value);
+      }
+    });
+    return element;
+  }
+  var defaults = {
+    splitClass: "",
+    lineClass: "line",
+    wordClass: "word",
+    charClass: "char",
+    types: ["lines", "words", "chars"],
+    absolute: false,
+    tagName: "div"
+  };
+  function splitWordsAndChars(textNode, settings) {
+    settings = extend(defaults, settings);
+    var types = parseTypes(settings.types);
+    var TAG_NAME = settings.tagName;
+    var VALUE = textNode.nodeValue;
+    var splitText = document.createDocumentFragment();
+    var words = [];
+    var chars = [];
+    if (/^\s/.test(VALUE)) {
+      splitText.append(" ");
+    }
+    words = toWords(VALUE).reduce(function(result, WORD, idx, arr) {
+      var wordElement;
+      var characterElementsForCurrentWord;
+      if (types.chars) {
+        characterElementsForCurrentWord = toChars(WORD).map(function(CHAR) {
+          var characterElement = createElement(TAG_NAME, {
+            "class": "".concat(settings.splitClass, " ").concat(settings.charClass),
+            style: "display: inline-block;",
+            children: CHAR
+          });
+          set(characterElement, "isChar", true);
+          chars = [].concat(_toConsumableArray(chars), [characterElement]);
+          return characterElement;
+        });
+      }
+      if (types.words || types.lines) {
+        wordElement = createElement(TAG_NAME, {
+          "class": "".concat(settings.wordClass, " ").concat(settings.splitClass),
+          style: "display: inline-block; ".concat(types.words && settings.absolute ? "position: relative;" : ""),
+          children: types.chars ? characterElementsForCurrentWord : WORD
+        });
+        set(wordElement, {
+          isWord: true,
+          isWordStart: true,
+          isWordEnd: true
+        });
+        splitText.appendChild(wordElement);
+      } else {
+        characterElementsForCurrentWord.forEach(function(characterElement) {
+          splitText.appendChild(characterElement);
+        });
+      }
+      if (idx < arr.length - 1) {
+        splitText.append(" ");
+      }
+      return types.words ? result.concat(wordElement) : result;
+    }, []);
+    if (/\s$/.test(VALUE)) {
+      splitText.append(" ");
+    }
+    textNode.replaceWith(splitText);
+    return {
+      words,
+      chars
+    };
+  }
+  function split(node, settings) {
+    var type = node.nodeType;
+    var wordsAndChars = {
+      words: [],
+      chars: []
+    };
+    if (!/(1|3|11)/.test(type)) {
+      return wordsAndChars;
+    }
+    if (type === 3 && /\S/.test(node.nodeValue)) {
+      return splitWordsAndChars(node, settings);
+    }
+    var childNodes = toArray(node.childNodes);
+    if (childNodes.length) {
+      set(node, "isSplit", true);
+      if (!get(node).isRoot) {
+        node.style.display = "inline-block";
+        node.style.position = "relative";
+        var nextSibling = node.nextSibling;
+        var prevSibling = node.previousSibling;
+        var text = node.textContent || "";
+        var textAfter = nextSibling ? nextSibling.textContent : " ";
+        var textBefore = prevSibling ? prevSibling.textContent : " ";
+        set(node, {
+          isWordEnd: /\s$/.test(text) || /^\s/.test(textAfter),
+          isWordStart: /^\s/.test(text) || /\s$/.test(textBefore)
+        });
+      }
+    }
+    return childNodes.reduce(function(result, child) {
+      var _split = split(child, settings), words = _split.words, chars = _split.chars;
+      return {
+        words: [].concat(_toConsumableArray(result.words), _toConsumableArray(words)),
+        chars: [].concat(_toConsumableArray(result.chars), _toConsumableArray(chars))
+      };
+    }, wordsAndChars);
+  }
+  function getPosition(node, isWord, settings, scrollPos) {
+    if (!settings.absolute) {
+      return {
+        top: isWord ? node.offsetTop : null
+      };
+    }
+    var parent = node.offsetParent;
+    var _scrollPos = _slicedToArray(scrollPos, 2), scrollX = _scrollPos[0], scrollY = _scrollPos[1];
+    var parentX = 0;
+    var parentY = 0;
+    if (parent && parent !== document.body) {
+      var parentRect = parent.getBoundingClientRect();
+      parentX = parentRect.x + scrollX;
+      parentY = parentRect.y + scrollY;
+    }
+    var _node$getBoundingClie = node.getBoundingClientRect(), width = _node$getBoundingClie.width, height = _node$getBoundingClie.height, x = _node$getBoundingClie.x, y = _node$getBoundingClie.y;
+    var top = y + scrollY - parentY;
+    var left = x + scrollX - parentX;
+    return {
+      width,
+      height,
+      top,
+      left
+    };
+  }
+  function unSplitWords(element) {
+    if (!get(element).isWord) {
+      toArray(element.children).forEach(function(child) {
+        return unSplitWords(child);
+      });
+    } else {
+      remove(element);
+      element.replaceWith.apply(element, _toConsumableArray(element.childNodes));
+    }
+  }
+  var createFragment = function createFragment2() {
+    return document.createDocumentFragment();
+  };
+  function repositionAfterSplit(element, settings, scrollPos) {
+    var types = parseTypes(settings.types);
+    var TAG_NAME = settings.tagName;
+    var nodes = element.getElementsByTagName("*");
+    var wordsInEachLine = [];
+    var wordsInCurrentLine = [];
+    var lineOffsetY = null;
+    var elementHeight;
+    var elementWidth;
+    var contentBox;
+    var lines = [];
+    var parent = element.parentElement;
+    var nextSibling = element.nextElementSibling;
+    var splitText = createFragment();
+    var cs = window.getComputedStyle(element);
+    var align = cs.textAlign;
+    var fontSize = parseFloat(cs.fontSize);
+    var lineThreshold = fontSize * 0.2;
+    if (settings.absolute) {
+      contentBox = {
+        left: element.offsetLeft,
+        top: element.offsetTop,
+        width: element.offsetWidth
+      };
+      elementWidth = element.offsetWidth;
+      elementHeight = element.offsetHeight;
+      set(element, {
+        cssWidth: element.style.width,
+        cssHeight: element.style.height
+      });
+    }
+    toArray(nodes).forEach(function(node) {
+      var isWordLike = node.parentElement === element;
+      var _getPosition = getPosition(node, isWordLike, settings, scrollPos), width = _getPosition.width, height = _getPosition.height, top = _getPosition.top, left = _getPosition.left;
+      if (/^br$/i.test(node.nodeName)) return;
+      if (types.lines && isWordLike) {
+        if (lineOffsetY === null || top - lineOffsetY >= lineThreshold) {
+          lineOffsetY = top;
+          wordsInEachLine.push(wordsInCurrentLine = []);
+        }
+        wordsInCurrentLine.push(node);
+      }
+      if (settings.absolute) {
+        set(node, {
+          top,
+          left,
+          width,
+          height
+        });
+      }
+    });
+    if (parent) {
+      parent.removeChild(element);
+    }
+    if (types.lines) {
+      lines = wordsInEachLine.map(function(wordsInThisLine) {
+        var lineElement = createElement(TAG_NAME, {
+          "class": "".concat(settings.splitClass, " ").concat(settings.lineClass),
+          style: "display: block; text-align: ".concat(align, "; width: 100%;")
+        });
+        set(lineElement, "isLine", true);
+        var lineDimensions = {
+          height: 0,
+          top: 1e4
+        };
+        splitText.appendChild(lineElement);
+        wordsInThisLine.forEach(function(wordOrElement, idx, arr) {
+          var _data$get = get(wordOrElement), isWordEnd = _data$get.isWordEnd, top = _data$get.top, height = _data$get.height;
+          var next = arr[idx + 1];
+          lineDimensions.height = Math.max(lineDimensions.height, height);
+          lineDimensions.top = Math.min(lineDimensions.top, top);
+          lineElement.appendChild(wordOrElement);
+          if (isWordEnd && get(next).isWordStart) {
+            lineElement.append(" ");
+          }
+        });
+        if (settings.absolute) {
+          set(lineElement, {
+            height: lineDimensions.height,
+            top: lineDimensions.top
+          });
+        }
+        return lineElement;
+      });
+      if (!types.words) {
+        unSplitWords(splitText);
+      }
+      element.replaceChildren(splitText);
+    }
+    if (settings.absolute) {
+      element.style.width = "".concat(element.style.width || elementWidth, "px");
+      element.style.height = "".concat(elementHeight, "px");
+      toArray(nodes).forEach(function(node) {
+        var _data$get2 = get(node), isLine = _data$get2.isLine, top = _data$get2.top, left = _data$get2.left, width = _data$get2.width, height = _data$get2.height;
+        var parentData = get(node.parentElement);
+        var isChildOfLineNode = !isLine && parentData.isLine;
+        node.style.top = "".concat(isChildOfLineNode ? top - parentData.top : top, "px");
+        node.style.left = isLine ? "".concat(contentBox.left, "px") : "".concat(left - (isChildOfLineNode ? contentBox.left : 0), "px");
+        node.style.height = "".concat(height, "px");
+        node.style.width = isLine ? "".concat(contentBox.width, "px") : "".concat(width, "px");
+        node.style.position = "absolute";
+      });
+    }
+    if (parent) {
+      if (nextSibling) parent.insertBefore(element, nextSibling);
+      else parent.appendChild(element);
+    }
+    return lines;
+  }
+  var _defaults = extend(defaults, {});
+  var SplitType = /* @__PURE__ */ function() {
+    _createClass(SplitType2, null, [{
+      key: "clearData",
+      /**
+       * CLears all data
+       */
+      value: function clearData() {
+        clear();
+      }
+      /**
+       * The default settings for all splitType instances
+       * @static
+       */
+    }, {
+      key: "setDefaults",
+      /**
+       * Sets the default settings for all SplitType instances.
+       * The provided object will be merged with the existing defaults objects.
+       *
+       * @param {Object} settings an object containing the settings to override
+       * @returns {Object} the new default settings
+       * @public
+       * @static
+       * @example
+       * SplitType.setDefaults({ "position": "absolute" })
+       */
+      value: function setDefaults(options) {
+        _defaults = extend(_defaults, parseSettings(options));
+        return defaults;
+      }
+      /**
+       * Revert target elements to their original html content
+       * Has no effect on that
+       *
+       * @param {any} elements The target elements to revert. One of:
+       *  - {string} A css selector
+       *  - {HTMLElement} A single element
+       * -  {NodeList} A NodeList or collection
+       *  - {HTMLElement[]} An array of Elements
+       * -  {Array<HTMLElement|NodeList|HTMLElement[]>} A nested array of elements
+       * @static
+       */
+    }, {
+      key: "revert",
+      value: function revert(elements) {
+        getTargetElements(elements).forEach(function(element) {
+          var _data$get = get(element), isSplit = _data$get.isSplit, html = _data$get.html, cssWidth = _data$get.cssWidth, cssHeight = _data$get.cssHeight;
+          if (isSplit) {
+            element.innerHTML = html;
+            element.style.width = cssWidth || "";
+            element.style.height = cssHeight || "";
+            remove(element);
+          }
+        });
+      }
+      /**
+       * Creates a new SplitType instance
+       * This static method provides a way to create a `SplitType` instance without
+       * using the `new` keyword.
+       *
+       * @param {any} target The target elements to split. One of:
+       *  - {string} A css selector
+       *  - {HTMLElement} A single element
+       * -  {NodeList} A NodeList or collection
+       *  - {HTMLElement[]} An array of Elements
+       * -  {Array<HTMLElement|NodeList|HTMLElement[]>} A nested array of elements
+       * @param {Object} [options] Settings for the SplitType instance
+       * @return {SplitType} the SplitType instance
+       * @static
+       */
+    }, {
+      key: "create",
+      value: function create(target, options) {
+        return new SplitType2(target, options);
+      }
+      /**
+       * Creates a new `SplitType` instance
+       *
+       * @param {any} elements The target elements to split. One of:
+       *  - {string} A css selector
+       *  - {HTMLElement} A single element
+       * -  {NodeList} A NodeList or collection
+       *  - {HTMLElement[]} An array of Elements
+       * -  {Array<HTMLElement|NodeList|HTMLElement[]>} A nested array of elements
+       * @param {Object} [options] Settings for the SplitType instance
+       */
+    }, {
+      key: "data",
+      /**
+       * The internal data store
+       */
+      get: function get2() {
+        return cache;
+      }
+    }, {
+      key: "defaults",
+      get: function get2() {
+        return _defaults;
+      },
+      set: function set2(options) {
+        _defaults = extend(_defaults, parseSettings(options));
+      }
+    }]);
+    function SplitType2(elements, options) {
+      _classCallCheck(this, SplitType2);
+      this.isSplit = false;
+      this.settings = extend(_defaults, parseSettings(options));
+      this.elements = getTargetElements(elements);
+      this.split();
+    }
+    _createClass(SplitType2, [{
+      key: "split",
+      value: function split$1(options) {
+        var _this = this;
+        this.revert();
+        this.elements.forEach(function(element) {
+          set(element, "html", element.innerHTML);
+        });
+        this.lines = [];
+        this.words = [];
+        this.chars = [];
+        var scrollPos = [window.pageXOffset, window.pageYOffset];
+        if (options !== void 0) {
+          this.settings = extend(this.settings, parseSettings(options));
+        }
+        var types = parseTypes(this.settings.types);
+        if (types.none) {
+          return;
+        }
+        this.elements.forEach(function(element) {
+          set(element, "isRoot", true);
+          var _split2 = split(element, _this.settings), words = _split2.words, chars = _split2.chars;
+          _this.words = [].concat(_toConsumableArray(_this.words), _toConsumableArray(words));
+          _this.chars = [].concat(_toConsumableArray(_this.chars), _toConsumableArray(chars));
+        });
+        this.elements.forEach(function(element) {
+          if (types.lines || _this.settings.absolute) {
+            var lines = repositionAfterSplit(element, _this.settings, scrollPos);
+            _this.lines = [].concat(_toConsumableArray(_this.lines), _toConsumableArray(lines));
+          }
+        });
+        this.isSplit = true;
+        window.scrollTo(scrollPos[0], scrollPos[1]);
+        cleanup();
+      }
+      /**
+       * Reverts target element(s) back to their original html content
+       * Deletes all stored data associated with the target elements
+       * Resets the properties on the splitType instance
+       *
+       * @public
+       */
+    }, {
+      key: "revert",
+      value: function revert() {
+        if (this.isSplit) {
+          this.lines = null;
+          this.words = null;
+          this.chars = null;
+          this.isSplit = false;
+        }
+        SplitType2.revert(this.elements);
+      }
+    }]);
+    return SplitType2;
+  }();
+
+  // src/utilities.js
+  var attr2 = function(defaultVal, attrVal) {
+    const defaultValType = typeof defaultVal;
+    if (typeof attrVal !== "string" || attrVal.trim() === "") return defaultVal;
+    if (attrVal === "true" && defaultValType === "boolean") return true;
+    if (attrVal === "false" && defaultValType === "boolean") return false;
+    if (isNaN(attrVal) && defaultValType === "string") return attrVal;
+    if (!isNaN(attrVal) && defaultValType === "number") return +attrVal;
+    return defaultVal;
+  };
+  var runSplit = function(text, types = "lines, words") {
+    if (!text) return;
+    typeSplit = new SplitType(text, {
+      types
+    });
+    return typeSplit;
+  };
+  var checkBreakpoints = function(item, animationID, gsapContext) {
+    if (!item || !animationID || !gsapContext) {
+      console.error(`GSAP checkBreakpoints Error in ${animationID}`);
+      return;
+    }
+    let { isMobile, isTablet, isDesktop, reduceMotion } = gsapContext.conditions;
+    if (isMobile === void 0 || isTablet === void 0 || isDesktop === void 0) {
+      console.error(`GSAP Match Media Conditions Not Defined`);
+      return;
+    }
+    const RUN_DESKTOP = `data-ix-${animationID}-desktop`;
+    const RUN_TABLET = `data-ix-${animationID}-tablet`;
+    const RUN_MOBILE = `data-ix-${animationID}-mobile`;
+    const RUN_ALL = `data-ix-${animationID}-run`;
+    runAll = attr2(true, item.getAttribute(RUN_ALL));
+    runMobile = attr2(true, item.getAttribute(RUN_MOBILE));
+    runTablet = attr2(true, item.getAttribute(RUN_TABLET));
+    runDesktop = attr2(true, item.getAttribute(RUN_DESKTOP));
+    if (runAll === false) return false;
+    if (runMobile === false && isMobile) return false;
+    if (runTablet === false && isTablet) return false;
+    if (runDesktop === false && isDesktop) return false;
+    return true;
+  };
+
+  // src/interactions/hoverActive.js
+  var hoverActive = function(gsapContext) {
+    const ANIMATION_ID = "hoveractive";
+    const HOVER_WRAP = '[data-ix-hoveractive="wrap"]';
+    const HOVER_ACTIVE_CLASS = "data-ix-hoveractive-class";
+    const ACTIVE_CLASS = "is-active";
+    const hoverElements = gsap.utils.toArray(HOVER_WRAP);
+    hoverElements.forEach((item) => {
+      if (!item) return;
+      let activeClass = attr(ACTIVE_CLASS, item.getAttribute(HOVER_ACTIVE_CLASS));
+      let runOnBreakpoint = checkBreakpoints(item, ANIMATION_ID, gsapContext);
+      if (runOnBreakpoint === false) return;
+      item.addEventListener("mouseover", function(e) {
+        item.classList.add(activeClass);
+      });
+      item.addEventListener("mouseleave", function(e) {
+        item.classList.remove(activeClass);
+      });
+    });
+  };
+
+  // src/interactions/clickActive.js
+  var clickActive = function(gsapContext) {
+    const ANIMATION_ID = "clickactive";
+    const WRAP = '[data-ix-clickactive="wrap"]';
+    const TRIGGER = '[data-ix-clickactive="trigger"]';
+    const TARGET = '[data-ix-clickactive="target"]';
+    const ID = "data-ix-clickactive-id";
+    const OPTION_ACTIVE_CLASS = "data-ix-clickactive-class";
+    const OPTION_START_ACTIVE = "data-ix-clickactive-start-active";
+    const OPTION_FIRST_ACTIVE = "data-ix-clickactive-first-active";
+    const OPTION_ONE_ACTIVE = "data-ix-clickactive-one-active";
+    const OPTION_KEEP_ONE_ACTIVE = "data-ix-clickactive-keep-one-active";
+    const INTERACTION_DURATION = 800;
+    const ACTIVE_CLASS = "is-active";
+    const clickActiveList = function(rootElement) {
+      const triggers = Array.from(rootElement.querySelectorAll(TRIGGER));
+      let activeClass = ACTIVE_CLASS;
+      let firstOpen = false;
+      let oneActive = false;
+      let keepOneActive = false;
+      if (rootElement !== document) {
+        activeClass = attr2(ACTIVE_CLASS, rootElement.getAttribute(OPTION_ACTIVE_CLASS));
+        firstOpen = attr2(false, rootElement.getAttribute(OPTION_FIRST_ACTIVE));
+        oneActive = attr2(false, rootElement.getAttribute(OPTION_ONE_ACTIVE));
+        keepOneActive = attr2(false, rootElement.getAttribute(OPTION_KEEP_ONE_ACTIVE));
+        let runOnBreakpoint = checkBreakpoints(rootElement, ANIMATION_ID, gsapContext);
+        if (runOnBreakpoint === false) return;
+      } else {
+      }
+      const activateItems = function(item, makeActive = true) {
+        if (!item) return;
+        let hasTarget = true;
+        const itemID = item.getAttribute(ID);
+        const targetEl = rootElement.querySelector(`${TARGET}[${ID}="${itemID}"]`);
+        if (!itemID || !targetEl) {
+          hasTarget = false;
+        }
+        if (makeActive) {
+          item.classList.add(activeClass);
+          if (hasTarget) {
+            targetEl.classList.add(activeClass);
+          }
+        } else {
+          item.classList.remove(activeClass);
+          if (hasTarget) {
+            targetEl.classList.remove(activeClass);
+          }
+        }
+      };
+      triggers.forEach((item) => {
+        if (!item) return;
+        let startActive = attr2(false, item.getAttribute(OPTION_START_ACTIVE));
+        if (startActive) {
+          activateItems(item);
+        } else {
+          activateItems(item, false);
+        }
+        item.addEventListener("click", function(e) {
+          let itemIsActive = item.classList.contains(ACTIVE_CLASS);
+          if (!itemIsActive) {
+            if (oneActive) {
+              triggers.forEach((itemElement) => {
+                if (itemElement === item) {
+                  activateItems(itemElement);
+                } else {
+                  activateItems(itemElement, false);
+                }
+              });
+            }
+            if (!oneActive) {
+              activateItems(item);
+            }
+          }
+          if (itemIsActive && !keepOneActive) {
+            activateItems(item, false);
+          }
+          if (itemIsActive && keepOneActive) {
+            const activeItems = triggers.filter(function(item2) {
+              return item2.classList.contains(activeClass);
+            });
+            if (activeItems.length > 1) {
+              activateItems(item, false);
+            }
+          }
+          if (gsap.ScrollTrigger !== void 0) {
+            setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, INTERACTION_DURATION);
+          }
+        });
+      });
+      const firstItem = triggers[0];
+      if (firstOpen) {
+        activateItems(firstItem);
+      }
+    };
+    const clickWraps = gsap.utils.toArray(WRAP);
+    if (clickWraps.length === 0 || clickWraps === void 0) {
+      clickActiveList(document);
+    } else {
+      clickWraps.forEach((wrap) => {
+        clickActiveList(wrap);
+      });
+    }
+  };
+
+  // src/interactions/load.js
+  var load = function(gsapContext) {
+    const ANIMATION_ID = "load";
+    const ATTRIBUTE = "data-ix-load";
+    const HEADING = "heading";
+    const ITEM = "item";
+    const IMAGE = "image";
+    const STAGGER = "stagger";
+    const POSITION = "data-ix-load-position";
+    const DEFAULT_STAGGER = "<0.2";
+    const items = gsap.utils.toArray(`[${ATTRIBUTE}]`);
+    if (items.length === 0) return;
+    const tl = gsap.timeline({
+      paused: true,
+      defaults: {
+        ease: "power1.out",
+        duration: 0.8
+      }
+    });
+    const loadHeading = function(item) {
+      const splitText = runSplit(item);
+      if (!splitText) return;
+      const position = attr2("<", item.getAttribute(POSITION));
+      tl.set(item, { opacity: 1 });
+      tl.fromTo(
+        splitText.words,
+        { opacity: 0, y: "50%", rotateX: 45 },
+        { opacity: 1, y: "0%", rotateX: 0, stagger: { each: 0.1, from: "left" } },
+        position
+      );
+    };
+    const loadImage = function(item) {
+      const position = attr2(DEFAULT_STAGGER, item.getAttribute(POSITION));
+      tl.fromTo(item, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1 }, position);
+    };
+    const loadItem = function(item) {
+      const position = attr2(DEFAULT_STAGGER, item.getAttribute(POSITION));
+      tl.fromTo(item, { opacity: 0, y: "2rem" }, { opacity: 1, y: "0rem" }, position);
+    };
+    const loadStagger = function(item) {
+      if (!item) return;
+      const children = gsap.utils.toArray(item.children);
+      if (children.length === 0) return;
+      children.forEach((child, index) => {
+        if (index === 0) {
+          item.style.opacity = 1;
+        }
+        loadItem(child);
+      });
+    };
+    items.forEach((item) => {
+      if (!item) return;
+      let runOnBreakpoint = checkBreakpoints(item, ANIMATION_ID, gsapContext);
+      if (runOnBreakpoint === false) return;
+      const loadType = item.getAttribute(ATTRIBUTE);
+      if (loadType === HEADING) {
+        loadHeading(item);
+      }
+      if (loadType === IMAGE) {
+        loadImage(item);
+      }
+      if (loadType === ITEM) {
+        loadItem(item);
+      }
+      if (loadType === STAGGER) {
+        loadStagger(item);
+      }
+    });
+    tl.play(0);
+    return tl;
+  };
+
+  // src/interactions/scrollIn.js
+  var scrollIn = function(gsapContext) {
+    const ANIMATION_ID = "scrollin";
+    const ELEMENT = "data-ix-scrollin";
+    const HEADING = "heading";
+    const ITEM = "item";
+    const CONTAINER = "container";
+    const STAGGER = "stagger";
+    const RICH_TEXT = "rich-text";
+    const IMAGE_WRAP = "image-wrap";
+    const IMAGE = "image";
+    const LINE = "line";
+    const SCROLL_TOGGLE_ACTIONS = "data-ix-scrollin-toggle-actions";
+    const SCROLL_SCRUB = "data-ix-scrollin-scrub";
+    const SCROLL_START = "data-ix-scrollin-start";
+    const SCROLL_END = "data-ix-scrollin-end";
+    const CLIP_DIRECTION = "data-ix-scrollin-direction";
+    const scrollInTL = function(item) {
+      const settings = {
+        scrub: false,
+        toggleActions: "play none none none",
+        start: "top 90%",
+        end: "top 75%"
+      };
+      settings.toggleActions = attr2(settings.toggleActions, item.getAttribute(SCROLL_TOGGLE_ACTIONS));
+      settings.scrub = attr2(settings.scrub, item.getAttribute(SCROLL_SCRUB));
+      settings.start = attr2(settings.start, item.getAttribute(SCROLL_START));
+      settings.end = attr2(settings.end, item.getAttribute(SCROLL_END));
+      const tl = gsap.timeline({
+        defaults: {
+          duration: 0.6,
+          ease: "power1.out"
+        },
+        scrollTrigger: {
+          trigger: item,
+          start: settings.start,
+          end: settings.end,
+          toggleActions: settings.toggleActions,
+          scrub: settings.scrub
+        }
+      });
+      return tl;
+    };
+    const defaultTween = function(item, tl, options = {}) {
+      const varsFrom = {
+        opacity: 0,
+        y: "2rem"
+      };
+      const varsTo = {
+        opacity: 1,
+        x: "0rem"
+      };
+      if (options.stagger === true) {
+        varsTo.stagger = { each: 0.1, from: "start" };
+      }
+      const tween = tl.fromTo(item, varsFrom, varsTo);
+      return tween;
+    };
+    const scrollInHeading = function(item) {
+      const splitText = runSplit(item);
+      if (!splitText) return;
+      const tl = scrollInTL(item);
+      const tween = defaultTween(splitText.words, tl, { stagger: true, skew: "large" });
+      tl.eventCallback("onComplete", () => {
+        splitText.revert();
+      });
+    };
+    const scrollInItem = function(item) {
+      if (!item) return;
+      const tl = scrollInTL(item);
+      const tween = defaultTween(item, tl);
+    };
+    const getCLipStart = function(item) {
+      let defaultDirection = "right";
+      let clipStart;
+      const direction = attr2(defaultDirection, item.getAttribute(CLIP_DIRECTION));
+      const clipDirections = {
+        left: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+        right: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+        top: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        bottom: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
+      };
+      if (direction === "left") {
+        clipStart = clipDirections.left;
+      }
+      if (direction === "right") {
+        clipStart = clipDirections.right;
+      }
+      if (direction === "top") {
+        clipStart = clipDirections.top;
+      }
+      if (direction === "bottom") {
+        clipStart = clipDirections.bottom;
+      }
+      return clipStart;
+    };
+    const scrollInImage = function(item) {
+      if (!item) return;
+      const clipStart = getCLipStart(item);
+      const clipEnd = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
+      const tl = scrollInTL(item);
+      tl.fromTo(
+        item,
+        {
+          clipPath: clipStart
+        },
+        {
+          clipPath: clipEnd,
+          duration: 1
+        }
+      );
+    };
+    const scrollInLine = function(item) {
+      if (!item) return;
+      const clipStart = getCLipStart(item);
+      const clipEnd = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
+      const tl = scrollInTL(item);
+      tl.fromTo(
+        item,
+        {
+          clipPath: clipStart
+        },
+        {
+          clipPath: clipEnd
+        }
+      );
+    };
+    const scrollInContainer = function(item) {
+      if (!item) return;
+      const children = gsap.utils.toArray(item.children);
+      if (children.length === 0) return;
+      children.forEach((child) => {
+        const tl = scrollInTL(child);
+        const tween = defaultTween(child, tl);
+      });
+    };
+    const scrollInStagger = function(item) {
+      if (!item) return;
+      const children = gsap.utils.toArray(item.children);
+      if (children.length === 0) return;
+      const tl = scrollInTL(item);
+      const tween = defaultTween(children, tl, { stagger: true });
+    };
+    const scrollInRichText = function(item) {
+      if (!item) return;
+      const children = gsap.utils.toArray(item.children);
+      if (children.length === 0) return;
+      children.forEach((child) => {
+        const childTag = child.tagName;
+        if (["H1", "H2", "H3", "H4", "H5", "H6"].includes(childTag)) {
+          scrollInHeading(child);
+        }
+        if (childTag === "FIGURE") {
+          scrollInImage(child);
+        } else {
+          scrollInItem(child);
+        }
+      });
+    };
+    const items = gsap.utils.toArray(`[${ELEMENT}]`);
+    items.forEach((item) => {
+      if (!item) return;
+      let runOnBreakpoint = checkBreakpoints(item, ANIMATION_ID, gsapContext);
+      if (runOnBreakpoint === false) return;
+      const scrollInType = item.getAttribute(ELEMENT);
+      if (scrollInType === HEADING) {
+        scrollInHeading(item);
+      }
+      if (scrollInType === ITEM) {
+        scrollInItem(item);
+      }
+      if (scrollInType === IMAGE) {
+        scrollInImage(item);
+      }
+      if (scrollInType === LINE) {
+        scrollInLine(item);
+      }
+      if (scrollInType === CONTAINER) {
+        scrollInContainer(item);
+      }
+      if (scrollInType === STAGGER) {
+        scrollInStagger(item);
+      }
+      if (scrollInType === RICH_TEXT) {
+        scrollInRichText(item);
+      }
+    });
+  };
+
+  // src/index.js
+  document.addEventListener("DOMContentLoaded", function() {
+    if (gsap.ScrollTrigger !== void 0) {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+    if (gsap.Flip !== void 0) {
+      gsap.registerPlugin(Flip);
+    }
+    const gsapInit = function() {
+      let mm = gsap.matchMedia();
+      mm.add(
+        {
+          //This is the conditions object
+          isMobile: "(max-width: 767px)",
+          isTablet: "(min-width: 768px)  and (max-width: 991px)",
+          isDesktop: "(min-width: 992px)",
+          reduceMotion: "(prefers-reduced-motion: reduce)"
+        },
+        (gsapContext) => {
+          let { isMobile, isTablet, isDesktop, reduceMotion } = gsapContext.conditions;
+          hoverActive(gsapContext);
+          clickActive(gsapContext);
+          load(gsapContext);
+          if (!reduceMotion) {
+            scrollIn(gsapContext);
+          }
+        }
+      );
+    };
+    gsapInit();
+    const scrollReset = function() {
+      const RESET_EL = "[data-ix-reset]";
+      const RESET_TIME = "data-ix-reset-time";
+      const resetScrollTriggers = document.querySelectorAll(RESET_EL);
+      resetScrollTriggers.forEach(function(item) {
+        item.addEventListener("click", function(e) {
+          ScrollTrigger.refresh();
+          if (item.hasAttribute(RESET_TIME)) {
+            let time = attr2(1e3, item.getAttribute(RESET_TIME));
+            setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, time);
+          }
+        });
+      });
+    };
+    scrollReset();
+  });
+})();
